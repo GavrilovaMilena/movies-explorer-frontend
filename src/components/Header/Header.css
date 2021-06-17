@@ -1,0 +1,26 @@
+.header {
+  background-color: #f3c1f8;
+  display: flex;
+  padding: 18px 70px;
+  position: relative;
+}
+
+.header__white {
+  background-color: #ffffff;
+}
+
+.header__logo {
+  margin-right: 44px;
+}
+
+@media(max-width: 768px) {
+  .header {
+      padding: 18px 30px;
+  }
+}
+
+@media(max-width: 320px) {
+  .header {
+      padding: 18px 14px;
+  }
+}
