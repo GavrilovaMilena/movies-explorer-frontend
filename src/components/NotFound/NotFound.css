@@ -40,13 +40,13 @@
     opacity: 0.6;
 }
 
-@media(max-width: 1179px) {
+@media(max-width: 768px) {
   .error {
       width: calc(100% - 184px*2);
   }
 }
 
-@media(max-width: 720px) {
+@media(max-width: 320px) {
   .error {
       width: calc(100% - 10px*2);
       padding-top: 329px;
