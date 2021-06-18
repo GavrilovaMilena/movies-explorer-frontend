@@ -37,8 +37,8 @@ function Navigation(props) {
                         <Link to="/" className="header__burger_link">Главная</Link>
                         <Link to="/movies" className="header__burger_link">Фильмы</Link>
                         <Link to="/saved-movies" className="header__burger_link">Сохранённые фильмы</Link>
-                        <Link to='/profile' className='header__link header__link_account'>
-                            <img className='header__link_account' src={Acc} alt='Человечек' />
+                        <Link to='/profile' className='header__burger_link burger__link_account'>
+                            <img className='burger__link_account' src={Acc} alt='Человечек' />
                         </Link>
                     </div>
                 </div>

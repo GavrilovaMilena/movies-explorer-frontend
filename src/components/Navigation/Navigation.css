@@ -140,6 +140,19 @@
   border-bottom: 2px solid #000;
 }
 
+.burger__link_account {
+  margin: 326px 0 0 0;
+  background: #ffff;
+  padding: 8px 20px;
+  border: none;
+  transition: 1s;
+}
+
+.burger__link_account:hover {
+  transition: 1s;
+  opacity: .6;
+}
+
 .no {
   display: none;
 }
@@ -179,5 +192,8 @@
 
   .header__burger_links {
       padding: 144px 10px 46px 10px;
+  }
+  .burger__link_account {
+    margin: 200px 0 0 0;
   }
 }
