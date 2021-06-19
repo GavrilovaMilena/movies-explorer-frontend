@@ -94,9 +94,13 @@
   .movies__list-like-button {
     margin: 18px 121px;
   }
+  .movies__list-delete-button {
+    margin: 14px 121px;
+    padding: 0;
+  }
 }
 
-@media(max-width: 320px) {
+@media(max-width: 360px) {
   .movies__list_description {
     min-height: 271px;
     max-width: 300px;

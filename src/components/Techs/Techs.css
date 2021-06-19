@@ -71,64 +71,91 @@
   color: #ffff;
 }
 
-@media (max-width: 768px) {
-  .techs {
-    padding: 90px 50px;
-  }
-
-  .techs__title {
-    font-size: 30px;
-    line-height: 36px;
-    margin: 0 0 22px 0;
-  }
-
-  .techs__subtitle {
-    margin: 0 auto 83px auto;
-    font-size: 12px;
-    line-height: 18px;
-  }
-
+@media(max-width: 1179px) {
   .techs__list {
-    width: 100%;
-    margin: 0;
-  }
-
-  .techs__list-item {
-    font-size: 12px;
-    line-height: 15px;
-    width: 84px;
-    height: 67px;
+      width: 80%;
+      margin: auto;
   }
 }
 
-@media (max-width: 320px) {
+@media(max-width: 992px) {
   .techs {
-    padding: 70px 18px;
-    background: #ffff;
-  }
-
-  .techs__heading {
-    padding-bottom: 28px;
-    font-size: 18px;
-    line-height: 22px;
-    margin: 0;
-  }
-
-  .techs__title {
-    margin: 0 0 24px 0;
+      padding: 90px 50px;
   }
 
   .techs__subtitle {
-    margin: 0 auto 50px auto;
-    font-size: 11px;
-    line-height: 16px;
+      margin: 0 auto 83px auto;
+      width: calc(100% - (154px - 50px)*2);
   }
 
   .techs__list {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-gap: 10px;
-    width: calc(100% - (71px - 18px) * 2);
-    margin: auto;
+      width: 100%;
+      margin: 0;
+
+  }
+
+  .techs__list-item {
+      font-size: 12px;
+      line-height: 15px;
+      width: 84px;
+      height: 67px;
+  }
+}
+
+@media(max-width: 720px) {
+  .techs {
+      padding: 70px 18px;
+  }
+
+  .techs__title {
+      font-size: 30px;
+      line-height: 36px;
+      margin: 0 0 24px 0;
+  }
+
+  .techs__subtitle {
+      width: 100%;
+      font-size: 11px;
+      line-height: 16px;
+      margin: 0 0 50px 0;
+  }
+
+  .techs__list {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      grid-gap: 10px;
+      width: calc(100% - 180px*2);
+      margin: auto;
+  }
+
+}
+
+@media(max-width: 600px) {
+  .techs__list {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      grid-gap: 10px;
+      width: calc(100% - 120px*2);
+      margin: auto;
+  }
+}
+
+@media(max-width: 550px) {
+  .techs__list {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      grid-gap: 10px;
+      width: calc(100% - 70px*2);
+      margin: auto;
+  }
+}
+
+@media(max-width: 400px) {
+  .techs__list {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      grid-gap: 10px;
+      width: calc(100% - (71px - 18px)*2);
+      margin: auto;
   }
 }

@@ -132,9 +132,9 @@
     opacity: 0.6;
 }
 
-@media(max-width: 768px) {
+@media(max-width: 1144px) {
   .profile {
-      width: calc(100% - 30px*2);
+      width: calc(100% - 240px*2);
       padding: 236px 0 269px 0;
   }
 
@@ -147,7 +147,21 @@
   }
 }
 
-@media(max-width: 320px) {
+@media(max-width: 980px) {
+  .profile {
+      width: calc(100% - 110px*2);
+      padding: 236px 0 269px 0;
+  }
+}
+
+@media(max-width: 768px) {
+  .profile {
+      width: calc(100% - 30px*2);
+      padding: 236px 0 269px 0;
+  }
+}
+
+@media(max-width: 650px) {
   .profile {
       padding: 70px 0 40px 0;
   }

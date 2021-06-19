@@ -92,8 +92,16 @@
   }
 
   .about-me__description_photo {
-      width: 255px;
+      width: 252px;
       height: 290px;
+  }
+}
+
+@media(max-width: 475px) {
+  .about-me__description {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 69px;
   }
 }
 
@@ -110,7 +118,7 @@
 
   .about-me__description_photo {
       order: -1;
-      width: 292px;
+      width: 288px;
       margin: 60px auto 40px auto;
   }
 

@@ -57,48 +57,111 @@
   padding-left: 14px;
 }
 
-@media (max-width: 768px) {
-  .search {
-    padding: 80px 30px 61px 30px;
-  }
-
+@media(max-width: 1279px) {
   .search__form_input {
-    width: 644px;
-  }
-
-  .search__toggle_box {
-    flex-direction: row-reverse;
-  }
-
-  .search__toggle_text {
-    padding: 0;
+      max-width: 700px;
   }
 }
 
-@media (max-width: 320px) {
-  .search {
-    padding: 84px 14px 53px 14px;
+@media(max-width: 1240px) {
+  .search__form_input {
+      max-width: 675px;
   }
+}
 
-  .search__form_fields {
-    padding: 0 0 9px 0;
+@media(max-width: 1200px) {
+  .search__form_input {
+      max-width: 620px;
+  }
+}
+
+@media(max-width: 1150px) {
+  .search__form_input {
+      max-width: 570px;
+  }
+}
+
+@media(max-width: 1100px) {
+  .search__form_input {
+      max-width: 520px;
+  }
+}
+
+@media(max-width: 1050px) {
+  .search__form_input {
+      max-width: 440px;
+  }
+}
+
+@media(max-width: 970px) {
+  .search__form_input {
+      max-width: 350px;
+  }
+}
+
+@media(max-width: 920px) {
+  .search {
+      width: calc(100% - 30px*2);
+      padding: 80px 0 120px 35px;
   }
 
   .search__form_input {
-    width: 228px;
+      max-width: 460px;
   }
 
-  .search__toggle_box {
-    padding: 43px 0 0 0;
-  }
-
-  .search__toggle_box {
-    justify-content: center;
-    flex-direction: row-reverse;
+  .search__form_button {
+      margin: 0 19px 0 0;
   }
 
   .search__toggle_text {
-    font-size: 11px;
-    padding-right: 13px;
+      margin: 0 20px 0 0;
+  }
+}
+
+@media(max-width: 850px) {
+  .search__form_input {
+      max-width: 420px;
+  }
+}
+
+@media(max-width: 800px) {
+  .search__form_input {
+      max-width: 340px;
+  }
+}
+
+@media(max-width: 720px) {
+  .search {
+    width: calc(100% - 10px*2);
+    margin: 80px auto 89px auto;
+    position: relative;
+    padding: 0;
+    z-index: 0;
+}
+
+  .search__form_input {
+      max-width: 500px;
+  }
+
+  .search__toggle_text {
+      margin: 0;
+  }
+}
+
+@media(max-width: 650px) {
+  .search__form_input {
+      max-width: 400px;
+  }
+}
+
+@media(max-width: 550px) {
+  .search__form_input {
+      max-width: 300px;
+  }
+}
+
+@media(max-width: 425px) {
+  .search__form_input {
+      max-width: 180px;
   }
 }
