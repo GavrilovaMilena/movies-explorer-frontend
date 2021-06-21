@@ -1,0 +1,124 @@
+.movies__list_description {
+  background: #fdfdfd;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  min-height: 319px;
+  max-width: 360px;
+}
+
+.movies__list_text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.movies__list_poster {
+  max-width: 360px;
+  min-height: 200px;
+}
+
+.movies__list_title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  margin: 0;
+  padding: 18px 0 18px 18px;
+}
+
+.movies__list_duration {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 18px;
+  text-align: right;
+  color: #a0a0a0;
+  margin: 0;
+  padding: 18px 18px 18px 0;
+}
+
+.movies__list-like-button {
+  background-image: url("../../images/save.svg");
+  background-repeat: no-repeat;
+  border-radius: 30px;
+  border: none;
+  background-position: center;
+  width: 100px;
+  height: 29px;
+  margin: 18px 130px;
+}
+
+.movies__list-like-button:hover {
+  transition: 1s;
+}
+
+.movies__list-like-button_clicked {
+  margin: 18px 130px;
+  background-image: url("../../images/Like.svg");
+  background-repeat: no-repeat;
+  border-radius: 30px;
+  border: none;
+  background-position: center;
+}
+
+.movies__list-delete-button {
+  background-image: url("../../images/delete.svg");
+  background-repeat: no-repeat;
+  border-radius: 30px;
+  border: none;
+  background-position: center;
+  width: 100px;
+  height: 29px;
+  margin: 18px 130px;
+}
+
+.movies__list-delete-button:hover {
+  transition: 1s;
+  opacity: 0.6;
+}
+
+.movies__list-delete-button_visible {
+  visibility: visible;
+  opacity: 1;
+  cursor: pointer;
+}
+
+@media(max-width: 768px) {
+  .movies__list_description {
+    min-height: 309px;
+    max-width: 342px;
+  }
+  .movies__list_poster {
+    max-width: 342px;
+    min-height: 190px;
+  }
+  .movies__list-like-button {
+    margin: 18px 121px;
+  }
+  .movies__list-delete-button {
+    margin: 14px 121px;
+    padding: 0;
+  }
+}
+
+@media(max-width: 360px) {
+  .movies__list_description {
+    min-height: 271px;
+    max-width: 300px;
+  }
+  .movies__list_poster {
+    max-width: 300px;
+    min-height: 168px;
+  }
+  .movies__list_title {
+    padding: 14px 0 14px 14px;
+  }
+  .movies__list_duration {
+    padding: 14px 14px 14px 0;
+  }
+  .movies__list-like-button {
+    margin: 14px 100px;
+  }
+  .movies__list-delete-button {
+    margin: 14px 100px;
+  }
+}
