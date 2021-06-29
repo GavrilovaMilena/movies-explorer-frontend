@@ -71,7 +71,7 @@
   color: #ffff;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1300px) {
   .techs {
     padding: 90px 50px;
   }
@@ -101,7 +101,7 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 720px) {
   .techs {
     padding: 70px 18px;
     background: #ffff;

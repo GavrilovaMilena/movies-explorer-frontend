@@ -57,7 +57,23 @@
   padding-left: 14px;
 }
 
-@media (max-width: 768px) {
+.search__form-error {
+  position: absolute;
+  display: inline-block;
+  color: #ff004c;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  left: 21%;
+  bottom: 61%;
+}
+
+.search__form-error_hidden {
+  display: none;
+}
+
+@media (max-width: 1200px) {
   .search {
     padding: 80px 30px 61px 30px;
   }
@@ -73,9 +89,13 @@
   .search__toggle_text {
     padding: 0;
   }
+  .search__form-error {
+    left: 5%;
+    bottom: 77%;
+  }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 720px) {
   .search {
     padding: 84px 14px 53px 14px;
   }
@@ -100,5 +120,9 @@
   .search__toggle_text {
     font-size: 11px;
     padding-right: 13px;
+  }
+  .search__form-error {
+    left: 25%;
+    bottom: 70%;
   }
 }

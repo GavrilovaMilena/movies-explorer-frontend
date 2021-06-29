@@ -61,14 +61,17 @@
   height: 90%;
 }
 
-.profile__form_error {
+.profile__input-error {
+  display: block;
+  width: 100%;
+  text-align: right;
   font-style: normal;
   font-weight: normal;
   font-size: 11px;
   line-height: 13px;
-  text-align: center;
   color: #ff4062;
-  margin-bottom: 20px;
+  min-height: 14px;
+  margin-bottom: 3px;
 }
 
 .no {
@@ -118,49 +121,84 @@
 }
 
 .profile__signout_link {
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 13px;
-    line-height: 16px;
-    color: #ff4062;
-    align-self: center;
-    transition: 1s;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  color: #ff4062;
+  align-self: center;
+  transition: 1s;
+  background: white;
+  border: none;
 }
 
 .profile__signout_link:hover {
-    cursor: pointer;
-    opacity: 0.6;
+  cursor: pointer;
+  opacity: 0.6;
 }
 
-@media(max-width: 768px) {
+.profile__button_save-disabled {
+  background-color: #e4e4e4;
+  color: #c2c2c2;
+}
+
+.profile__form-message_error {
+  color: #ff4062;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.profile__input_error {
+  color: #ff4062;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.profile__form-message_success {
+  color: #49c403;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 768px) {
   .profile {
-      width: calc(100% - 30px*2);
-      padding: 236px 0 269px 0;
+    width: calc(100% - 30px * 2);
+    padding: 236px 0 269px 0;
   }
 
   .profile__form {
-      width: calc(100% - (179px - 30px)*2);
+    width: calc(100% - (179px - 30px) * 2);
   }
 
   .profile__fields {
-      margin-bottom: 210px;
+    margin-bottom: 210px;
   }
 }
 
-@media(max-width: 320px) {
+@media (max-width: 320px) {
   .profile {
-      padding: 70px 0 40px 0;
+    padding: 70px 0 40px 0;
   }
 
   .profile__title {
-      margin-bottom: 80px;
+    margin-bottom: 80px;
   }
 
   .profile__form {
-      width: 100%;
+    width: 100%;
   }
 
   .profile__fields {
-      margin-bottom: 350px;
+    margin-bottom: 350px;
   }
 }

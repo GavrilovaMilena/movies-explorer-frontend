@@ -12,8 +12,18 @@
 }
 
 .movies__list_poster {
-  max-width: 360px;
-  min-height: 200px;
+  width: 360px;
+  height: 200px;
+  transition: 1s;
+}
+
+.movies__list_poster:hover {
+  transition: 1s;
+  opacity: 0.6;
+}
+
+.movies__trailer_link:hover {
+  opacity: 0.6;
 }
 
 .movies__list_title {
@@ -23,6 +33,10 @@
   line-height: 18px;
   margin: 0;
   padding: 18px 0 18px 18px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .movies__list_duration {
@@ -82,28 +96,28 @@
   cursor: pointer;
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .movies__list_description {
     min-height: 309px;
     max-width: 342px;
   }
   .movies__list_poster {
-    max-width: 342px;
-    min-height: 190px;
+    width: 342px;
+    height: 190px;
   }
   .movies__list-like-button {
     margin: 18px 121px;
   }
 }
 
-@media(max-width: 320px) {
+@media (max-width: 320px) {
   .movies__list_description {
     min-height: 271px;
     max-width: 300px;
   }
   .movies__list_poster {
-    max-width: 300px;
-    min-height: 168px;
+    width: 300px;
+    height: 168px;
   }
   .movies__list_title {
     padding: 14px 0 14px 14px;
