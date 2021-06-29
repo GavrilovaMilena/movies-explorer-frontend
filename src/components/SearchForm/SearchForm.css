@@ -57,6 +57,22 @@
   padding-left: 14px;
 }
 
+.search__form-error {
+  position: absolute;
+  display: inline-block;
+  color: #ff004c;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  left: 21%;
+  bottom: 61%;
+}
+
+.search__form-error_hidden {
+  display: none;
+}
+
 @media (max-width: 1200px) {
   .search {
     padding: 80px 30px 61px 30px;
