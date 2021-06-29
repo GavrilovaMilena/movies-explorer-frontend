@@ -51,7 +51,7 @@
   }
 }
 
-@media(max-width: 400px) {
+@media(max-width: 720px) {
   .footer {
       padding: 79px 10px 10px 10px;
   }
@@ -75,5 +75,4 @@
   .footer__links-item:not(:last-child) {
       margin: 0 0 12px 0;
   }
-
 }

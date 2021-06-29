@@ -82,32 +82,28 @@
   cursor: pointer;
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .movies__list_description {
     min-height: 309px;
     max-width: 342px;
   }
   .movies__list_poster {
-    max-width: 342px;
-    min-height: 190px;
+    width: 342px;
+    height: 190px;
   }
   .movies__list-like-button {
     margin: 18px 121px;
   }
-  .movies__list-delete-button {
-    margin: 14px 121px;
-    padding: 0;
-  }
 }
 
-@media(max-width: 360px) {
+@media (max-width: 320px) {
   .movies__list_description {
     min-height: 271px;
     max-width: 300px;
   }
   .movies__list_poster {
-    max-width: 300px;
-    min-height: 168px;
+    width: 300px;
+    height: 168px;
   }
   .movies__list_title {
     padding: 14px 0 14px 14px;
