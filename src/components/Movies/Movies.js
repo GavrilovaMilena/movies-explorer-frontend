@@ -14,95 +14,117 @@ function Movies(props) {
     const [isErrorActive, setIsErrorActive] = React.useState(false);
     const [movies, setMovies] = React.useState([]);
     const [savedMovies, setSavedMovies] = React.useState([]);
+    const [moviesCache, setMoviesCache] = React.useState([]);
     const location = useLocation();
     const history = useHistory();
+
     // поиск фильмов 
     function handleSearchMovies(search, searchCheckbox) {
-
         setIsErrorActive(false);
         setNotFound(false);
         setMovies([]);
         setIsSearching(true);
-        if(props.saved) {
+        if (props.saved) {
             var filterd = filterUtility.filterMovies(savedMovies, search, searchCheckbox);
             setNotFound(filterd.length == 0);
             setMovies(filterd);
             setIsSearching(false);
         }
         else {
-            moviesApi.getMovies()
-            .then((result) => {
-                var filterd = filterUtility.filterMovies(result, search, searchCheckbox);
+            if(moviesCache.length == 0) {
+                moviesApi.getMovies()
+                .then((result) => {
+                    var filterd = filterUtility.filterMovies(result, search, searchCheckbox);
+                    setNotFound(filterd.length == 0);
+                    setMoviesCache(filterd);
+                    setMovies(filterd);
+                    setIsSearching(false);
+                }).catch((e) => {
+                    setIsErrorActive(true);
+                    setIsSearching(false);
+                });
+            }
+            else {
+                var filterd = filterUtility.filterMovies(moviesCache, search, searchCheckbox);
                 setNotFound(filterd.length == 0);
                 setMovies(filterd);
                 setIsSearching(false);
-            }).catch((e) => {
-                setIsErrorActive(true);
-                setIsSearching(false);
-            });
-        } 
+            }
+        }
     }
 
     function handleMovieSave(movie) {
         mainApi.createMovie(movie)
-        .then(()=>{
+            .then((result) => {
+                updateCard(movie, result._id);
+            }).catch((e) => {
+                setIsErrorActive(true);
+            });
+    }
 
-        }).catch((e) => {
-            setIsErrorActive(true);
+    function updateCard(movie, id) {
+        moviesCache.forEach(m => {
+            if(m.id == movie.movieId)
+                m._id = id;
         });
+        movies.forEach(m => {
+            if(m.id == movie.movieId)
+                m._id = id;
+        });
+        setMoviesCache(moviesCache);
+        setMovies(movies);
     }
 
     function handleDeleteMovie(id) {
         mainApi.deleteMovieById(id)
-        .then(()=>{
-            mainApi.getSavedMovies()
-            .then((result) => {
-                setSavedMovies(result);
-                setMovies(result);
+            .then(() => {
+                if (props.saved)
+                    mainApi.getSavedMovies()
+                        .then((result) => {
+                            setSavedMovies(result);
+                            setMovies(result);
+                        }).catch((e) => {
+                            setIsErrorActive(true);
+                        });
             }).catch((e) => {
                 setIsErrorActive(true);
             });
-        }).catch((e) => {
-            setIsErrorActive(true);
-        });
     }
 
     React.useEffect(() => {
         setIsSearching(true);
-        setIsSearching(false);
         setMovies([]);
+        setMoviesCache([]);
         setSavedMovies([]);
-        if(props.saved) {
+        if (props.saved) {
             mainApi.getSavedMovies()
-            .then((result) => {
-                setSavedMovies(result);
-                setMovies(result);
-                setIsSearching(false);
-            }).catch((e) => {
-                setIsErrorActive(true);
-                setIsSearching(false);
-            });
-        } 
+                .then((result) => {
+                    setSavedMovies(result);
+                    setMovies(result);
+                    setIsSearching(false);
+                }).catch((e) => {
+                    setIsErrorActive(true);
+                    setIsSearching(false);
+                });
+        }
         else {
-            moviesApi.getMovies()
-            .then((result) => {
-                setNotFound(result.length == 0);
-                setMovies(result);
-                setIsSearching(false);
-            }).catch((e) => {
-                setIsErrorActive(true);
-                setIsSearching(false);
-            });
+            setIsSearching(false);
         }
     }, [location, history]);
 
     return (
         <>
             <Header loggedIn={props.loggedIn} main={false} />
-            <SearchForm saved={props.saved} onSearchMovies={handleSearchMovies}/>
-            <MoviesCardList saved={props.saved} 
-            movies={movies} isSearching={isSearching} notFound={notFound} isErrorActive={isErrorActive}
-            onMovieSave={handleMovieSave} onDeleteMovie={handleDeleteMovie}/>
+            <SearchForm saved={props.saved} onSearchMovies={handleSearchMovies} />
+            <MoviesCardList
+                saved={props.saved}
+                movies={movies}
+                isSearching={isSearching}
+                notFound={notFound}
+                isErrorActive={isErrorActive}
+                onMovieSave={handleMovieSave}
+                onDeleteMovie={handleDeleteMovie}
+            />
             <Footer />
         </>
     )

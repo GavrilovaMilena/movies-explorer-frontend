@@ -37,9 +37,6 @@ function App() {
                     setLoginError('Что-то пошло не так...');
                 })
         }
-        else {
-            history.push('/signin');
-        }
     }, [history, isLoggedIn]);
 
     // обработчик регистрации 
@@ -69,7 +66,7 @@ function App() {
                     mainApi.getUser().then((userData) => {
                         setLoginError('');
                         setCurrentUser(userData);
-                        history.push('/');
+                        history.push('/movies');
                     })
                         .catch(() => {
                             setLoginError('Что-то пошло не так...');

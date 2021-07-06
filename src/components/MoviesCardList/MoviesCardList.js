@@ -57,8 +57,8 @@ function MoviesCardList(props) {
         props.onMovieSave(movie);
     }
 
-    function handleDeleteMovie(movieId) {
-        props.onDeleteMovie(movieId);
+    function handleDeleteMovie(id) {
+        props.onDeleteMovie(id);
     }
 
     React.useEffect(() => {

@@ -2,8 +2,7 @@ import './FilterCheckbox.css';
 
 function FilterCheckbox(props) {
     function handleFilterCheckboxChange(e) {
-        e.preventDefault();
-        props.onChangeFilterCheckbox(e.target.value);
+        props.onChangeFilterCheckbox(e.target.checked);
     }
 
     return (

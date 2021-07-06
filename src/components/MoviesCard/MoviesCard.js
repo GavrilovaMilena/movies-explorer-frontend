@@ -1,7 +1,6 @@
 import './MoviesCard.css';
 import React from 'react';
 import Poster from '../../images/Poster.jpg'
-import { useLocation } from 'react-router-dom';
 
 function MoviesCard(props) {
 
@@ -14,7 +13,7 @@ function MoviesCard(props) {
         duration: props.movie.duration || 0,
         year: props.movie.year || 'Не указано',
         description: props.movie.description || 'Не указано',
-        image: props.movie.image === null ?
+        image: props.movie.image === null || !props.saved && !props.movie.image.url ?
             `${Poster}` :
             (props.saved ? props.movie.image : 'https://api.nomoreparties.co' + props.movie.image?.url),
         trailer: props.saved ? props.movie.trailer : props.movie.trailerLink,
@@ -46,6 +45,10 @@ function MoviesCard(props) {
         props.onDeleteMovie(movie._id);
         setSaved(false);
     }
+    
+    function handleMovieClick() {
+        return saved ? handleDeleteMovie() : handleLikeButtonClick();
+      }
 
     return (
 
@@ -66,7 +69,7 @@ function MoviesCard(props) {
                         onClick={handleDeleteMovie}></button> :
                     <button
                         className={`movies__list-like-button ${saved ? 'movies__list-like-button_clicked' : ''}`}
-                        onClick={saved ? () => { } : handleLikeButtonClick}>
+                        onClick={handleMovieClick}>
                     </button>}
             </div>
         </li>
