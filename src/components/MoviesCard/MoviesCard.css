@@ -65,6 +65,12 @@
   transition: 1s;
 }
 
+.movies__list-like-button_in-progress {
+  background-image: none;
+  font-size: 12px;
+  transition: none;
+}
+
 .movies__list-like-button_clicked {
   margin: 18px 130px;
   background-image: url("../../images/Like.svg");

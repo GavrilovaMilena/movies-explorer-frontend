@@ -18,6 +18,9 @@ function Movies(props) {
     const location = useLocation();
     const history = useHistory();
 
+    const [, updateState] = React.useState();
+    const forceUpdate = React.useCallback(() => updateState({}), []);
+
     // поиск фильмов 
     function handleSearchMovies(search, searchCheckbox) {
         setIsErrorActive(false);
@@ -54,6 +57,20 @@ function Movies(props) {
     }
 
     function handleMovieSave(movie) {
+        moviesCache.forEach(m => {
+            if(m.id == movie.movieId) {
+                m.saveInProgress = true;
+            }
+        });
+        movies.forEach(m => {
+            if(m.id == movie.movieId) {
+                m.saveInProgress = true;
+            }   
+        });
+        setMoviesCache(moviesCache);
+        setMovies(movies);
+        forceUpdate();
+
         mainApi.createMovie(movie)
             .then((result) => {
                 updateCard(movie, result._id);
@@ -64,18 +81,26 @@ function Movies(props) {
 
     function updateCard(movie, id) {
         moviesCache.forEach(m => {
-            if(m.id == movie.movieId)
+            if(m.id == movie.movieId) {
                 m._id = id;
+                m.saved = true;
+                m.saveInProgress = false;
+            }
         });
         movies.forEach(m => {
-            if(m.id == movie.movieId)
+            if(m.id == movie.movieId) {
                 m._id = id;
+                m.saved = true;
+                m.saveInProgress = false;
+            }   
         });
         setMoviesCache(moviesCache);
         setMovies(movies);
+        forceUpdate();
     }
 
     function handleDeleteMovie(id) {
+        forceUpdate();
         mainApi.deleteMovieById(id)
             .then(() => {
                 if (props.saved)
@@ -86,6 +111,26 @@ function Movies(props) {
                         }).catch((e) => {
                             setIsErrorActive(true);
                         });
+                else {
+                    moviesCache.forEach(m => {
+                        if(m._id == id) {
+                            m.saveInProgress = false;
+                            m.saved = false;
+                            m._id = null;
+                        }
+                    });
+                    movies.forEach(m => {
+                        if(m._id == id) {
+                            m.saveInProgress = false;
+                            m.saved = false;
+                            m._id = null;
+                        }   
+                    });
+                    setMoviesCache(moviesCache);
+                    setMovies(movies);
+                    forceUpdate();
+                }
+                    
             }).catch((e) => {
                 setIsErrorActive(true);
             });

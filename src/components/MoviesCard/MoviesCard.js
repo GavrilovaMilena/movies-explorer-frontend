@@ -5,9 +5,8 @@ import Poster from '../../images/Poster.jpg'
 function MoviesCard(props) {
 
     const [deleteButtonVisible, setDeleteButtonVisible] = React.useState(false);
-    const [saved, setSaved] = React.useState(false);
 
-    const movie = {
+    let movie = {
         country: props.movie.country || 'Не указано',
         director: props.movie.director || 'Не указано',
         duration: props.movie.duration || 0,
@@ -23,7 +22,9 @@ function MoviesCard(props) {
             `${Poster}` :
             (props.saved ? props.movie.thumbnail : 'https://api.nomoreparties.co' + props.movie.image?.formats?.thumbnail?.url),
         movieId: props.saved ? props.movie.movieId : props.movie.id,
-        _id: props.movie._id
+        _id: props.movie._id,
+        saved: props.movie.saved,
+        saveInProgress: props.movie.saveInProgress
     }
 
     const duration = `${Math.trunc(movie.duration / 60)}ч${movie.duration % 60}м`;
@@ -37,18 +38,35 @@ function MoviesCard(props) {
     }
 
     function handleLikeButtonClick() {
+        movie.saveInProgress = true;
         props.onMovieSave(movie);
-        setSaved(true);
     }
 
     function handleDeleteMovie() {
         props.onDeleteMovie(movie._id);
-        setSaved(false);
+        movie.saveInProgress = false;
+        movie.saved = false;
     }
-    
+
     function handleMovieClick() {
-        return saved ? handleDeleteMovie() : handleLikeButtonClick();
-      }
+        return movie.saved ? handleDeleteMovie() : handleLikeButtonClick();
+    }
+
+
+    let buttons = movie.saveInProgress ?
+        (<button
+            disabled={`true`}
+            className={`movies__list-like-button movies__list-like-button_in-progress`}>
+                Сохранение
+        </button>)
+        :
+        (props.saved ?
+            <button className={`movies__list-delete-button ${deleteButtonVisible ? 'movies__list-delete-button_visible' : ''}`}
+                onClick={handleDeleteMovie}></button> :
+            <button
+                className={`movies__list-like-button ${movie.saved ? 'movies__list-like-button_clicked' : ''}`}
+                onClick={handleMovieClick}>
+            </button>);
 
     return (
 
@@ -64,13 +82,7 @@ function MoviesCard(props) {
                 <a href={movie.trailer} target="_blank" className="movies__trailer_link">
                     <img alt={movie.nameRU} src={movie.image} className="movies__list_poster" />
                 </a>
-                {props.saved ?
-                    <button className={`movies__list-delete-button ${deleteButtonVisible ? 'movies__list-delete-button_visible' : ''}`}
-                        onClick={handleDeleteMovie}></button> :
-                    <button
-                        className={`movies__list-like-button ${saved ? 'movies__list-like-button_clicked' : ''}`}
-                        onClick={handleMovieClick}>
-                    </button>}
+                {buttons}
             </div>
         </li>
     )
