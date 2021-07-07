@@ -58,6 +58,19 @@
   display: block;
 }
 
+.auth__submit_error {
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 16px;
+  text-align: center;
+  color: #ff004c;
+  width: 100%;
+  min-height: 16px;
+  margin-bottom: 10px;
+}
+
 .auth__button {
   background: #000;
   border-radius: 3px;
@@ -77,6 +90,11 @@
 .auth__button:hover {
   cursor: pointer;
   opacity: 0.6;
+}
+
+.auth__button_disabled {
+  background-color: #e4e4e4;
+  color: #c2c2c2;
 }
 
 .auth__subtitle {
