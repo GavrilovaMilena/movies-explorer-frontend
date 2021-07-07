@@ -38,32 +38,19 @@
     display: none;
 }
 
-@media(max-width: 1279px) {
-    .movies__list {
-        grid-template-columns: repeat(3, auto);
-    }
-}
-
-@media(max-width: 1140px) {
-    .movies__list {
-        grid-template-columns: repeat(2, auto);
-    }
-}
-
-@media(max-width: 925px) {
+@media(max-width: 1144px) {
     .movies {
-        margin: 70px auto 80px auto;
-        padding: 0;
+        padding: 70px 30px 80px 30px;
     }
 
     .movies__list {
         grid-template-columns: repeat(2, auto);
-        grid-column-gap: 21px;
+        grid-column-gap: 30px;
         grid-row-gap: 30px;
     }
 }
 
-@media(max-width: 720px) {
+@media(max-width: 800px) {
     .movies {
         padding: 40px 10px 80px 10px;
     }
