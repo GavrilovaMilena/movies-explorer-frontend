@@ -15,6 +15,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
+  /* box-shadow: -12px 25px 35px -13px #f3c1f8; */
 }
 
 .search__form_input {

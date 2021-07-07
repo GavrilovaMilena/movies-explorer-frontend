@@ -163,6 +163,18 @@
   transform: translateX(0);
 }
 
+@media(max-width: 1200px) {
+  .header__navigation_movies {
+    padding-left: 300px;
+  }
+}
+
+@media(max-width: 1000px) {
+  .header__navigation_movies {
+    padding-left: 200px;
+  }
+}
+
 @media(max-width: 768px) {
   .header__link_account{
       display: none;

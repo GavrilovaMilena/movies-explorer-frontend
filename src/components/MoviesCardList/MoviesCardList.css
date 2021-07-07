@@ -38,7 +38,7 @@
     display: none;
 }
 
-@media(max-width: 768px) {
+@media(max-width: 1144px) {
     .movies {
         padding: 70px 30px 80px 30px;
     }
@@ -50,7 +50,7 @@
     }
 }
 
-@media(max-width: 320px) {
+@media(max-width: 800px) {
     .movies {
         padding: 40px 10px 80px 10px;
     }
