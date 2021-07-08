@@ -12,8 +12,18 @@
 }
 
 .movies__list_poster {
-  max-width: 360px;
-  min-height: 200px;
+  width: 360px;
+  height: 200px;
+  transition: 1s;
+}
+
+.movies__list_poster:hover {
+  transition: 1s;
+  opacity: 0.6;
+}
+
+.movies__trailer_link:hover {
+  opacity: 0.6;
 }
 
 .movies__list_title {
@@ -23,6 +33,10 @@
   line-height: 18px;
   margin: 0;
   padding: 18px 0 18px 18px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .movies__list_duration {
@@ -49,6 +63,12 @@
 
 .movies__list-like-button:hover {
   transition: 1s;
+}
+
+.movies__list-like-button_in-progress {
+  background-image: none;
+  font-size: 12px;
+  transition: none;
 }
 
 .movies__list-like-button_clicked {

@@ -14,26 +14,17 @@
 .search__toggle_visible {
     background: url('../../images/smalltumboff.svg') right no-repeat;
     background-position: 20% 50%;
-    border-radius: 20px;
     display: inline-block;
     vertical-align: middle;
     width: 36px;
     height: 20px;
     transition: 1s;
-}
-
-.search__toggle_visible {
     cursor: pointer;
 }
 
 .search__toggle:checked + .search__toggle_visible {
     background: url('../../images/smalltumb.svg') right no-repeat;
     background-position: 80% 50%;
-}
-
-.search__toggle:disabled + .search__toggle_visible {
-    background: url('../../images/smalltumboff.svg');
-    background-position: 20% 50%;
 }
 
 @media(max-width: 920px) {
